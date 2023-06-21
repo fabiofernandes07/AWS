@@ -1,0 +1,16 @@
+- hosts: terraform-ansible
+  tasks: 
+  - name: instalando o python3, virtualenv
+    apt: 
+      pkg: 
+      - python3
+      - virtualenv
+      update_cache: yes
+    become: yes
+  - name: instalando dependencias com pip
+    pip: 
+      virtualenv: /home/ubuntu/teste/venv
+      name: 
+        -django
+        -djangorestframework
+
